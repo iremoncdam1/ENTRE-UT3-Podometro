@@ -88,9 +88,9 @@ public class Podometro {
      *   
      *   (leer enunciado del ejercicio)
      */
-    public void registrarCaminata(int pasos, int dia, int horaInicio,
-                            int horaFin) {
-
+    public void registrarCaminata(int pasos, int dia, int horaInicio,int horaFin) 
+    {
+        
        
 
     }
@@ -102,10 +102,13 @@ public class Podometro {
      * (ver enunciado)
      *  
      */
-    public void printConfiguracion() {
-
-        
-
+    public void printConfiguracion() 
+    {
+        System.out.println ("Configuración del podómetro");
+        System.out.println ("***************************");
+        System.out.println ("Altura: " + altura / 100 + " mtos");
+        System.out.println ("Sexo: " + sexo);
+        System.out.println ("Longitud zancada: " + longitudZancada / 100 + " mtos");
     }
 
     /**
@@ -123,15 +126,15 @@ public class Podometro {
 
    
 
-    /**
-     *  Calcula y devuelve un String que representa el nombre del día
-     *  en el que se ha caminado más pasos - "SÁBADO"   "DOMINGO" o  "LABORABLES"
-     */
-    public String diaMayorNumeroPasos() {
+    // /**
+    // *  Calcula y devuelve un String que representa el nombre del día
+    // *  en el que se ha caminado más pasos - "SÁBADO"   "DOMINGO" o  "LABORABLES"
+    // */
+    //public String diaMayorNumeroPasos() {
 
          
 
-    }
+    //}
     
     
     /**
