@@ -67,11 +67,11 @@ public class Podometro {
         sexo = queSexo;
         if (sexo == MUJER)
             {
-                longitudZancada = Math.floor(altura * 0.41);
+                longitudZancada = Math.floor(altura * ZANCADA_MUJER);
             }
         else if (sexo == HOMBRE)
             {
-                longitudZancada = Math.ceil(altura * 0.45);
+                longitudZancada = Math.ceil(altura * ZANCADA_HOMBRE);
             }
     }
 
@@ -90,9 +90,32 @@ public class Podometro {
      */
     public void registrarCaminata(int pasos, int dia, int horaInicio,int horaFin) 
     {
+        int pasosLaborables;
+        switch (dia)
+        {
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+            case 5: pasosLaborables = pasos;
+                totalPasosLaborables += pasosLaborables;
+                break;
+            case 6: totalPasosSabado = pasos;
+                break;
+            case 7: totalPasosDomingo = pasos;
+                break;
+        }
         
-       
-
+        totalDistanciaSemana = totalPasosLaborables * longitudZancada;
+        totalDistanciaFinSemana = (totalPasosSabado + totalPasosDomingo) * longitudZancada;
+        
+        if (horaInicio > 2100)
+        {
+            ++caminatasNoche;    
+        }
+        
+        int horaTotal = horaFin - horaInicio;
+        tiempo += horaTotal;
     }
     
      /**
@@ -118,9 +141,8 @@ public class Podometro {
      * (leer enunciado)
      *  
      */
-    public void printEstadísticas() {
-
-        
+    public void printEstadísticas() 
+    {
 
     }
 
