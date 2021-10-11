@@ -6,8 +6,8 @@
  * @author    - Iratxe Remón - 
  */
 public class Podometro {
-    private final char HOMBRE = H;
-    private final char MUJER = M;
+    private final char HOMBRE = 'H';
+    private final char MUJER = 'M';
     private final double ZANCADA_HOMBRE = 0.45;
     private final double ZANCADA_MUJER = 0.41;
     private final int SABADO = 6;
@@ -47,10 +47,9 @@ public class Podometro {
      * accesor para la marca
      *  
      */
-    public      getMarca() {
-
-         
-
+    public String getMarca() 
+    {
+        return marca;
     }
 
     /**
