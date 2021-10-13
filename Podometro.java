@@ -93,16 +93,12 @@ public class Podometro {
         int pasosLaborables;
         switch (dia)
         {
-            case 1:
-            case 2:
-            case 3:
-            case 4:
-            case 5: pasosLaborables = pasos;
-                totalPasosLaborables += pasosLaborables;
-                break;
             case 6: totalPasosSabado = pasos;
                 break;
             case 7: totalPasosDomingo = pasos;
+                break;
+            default: pasosLaborables = pasos;
+                totalPasosLaborables += pasosLaborables;
                 break;
         }
         
@@ -115,7 +111,13 @@ public class Podometro {
         }
         
         int horaTotal = horaFin - horaInicio;
-        tiempo += horaTotal;
+        if (horaTotal == 100)
+        {
+            ++tiempo;
+            horaTotal = 0;
+        }
+        
+        
     }
     
      /**
@@ -145,8 +147,8 @@ public class Podometro {
     {
         System.out.println ("Estadísticas");
         System.out.println ("*************************************");
-        System.out.println ("Distancia recorrida toda la semana: " + totalDistanciaSemana / 100 + " Km");
-        System.out.println ("Distancia recorida fin de semana: " + totalDistanciaFinSemana / 100 + " Km");
+        System.out.println ("Distancia recorrida toda la semana: " + (totalDistanciaSemana + totalDistanciaFinSemana) / 1000 + " Km");
+        System.out.println ("Distancia recorida fin de semana: " + totalDistanciaFinSemana / 1000 + " Km");
         System.out.println ();
         System.out.println ("Nº pasos dias laborables: " + totalPasosLaborables);
         System.out.println ("Nº pasos SÁBADO: " + totalPasosSabado);
@@ -154,7 +156,7 @@ public class Podometro {
         System.out.println ();
         System.out.println ("Nº caminatas realizadas a partir de las 21h: " + caminatasNoche);
         System.out.println ();
-        System.out.println ("Tiempo total caminado en la semana: " + tiempo);
+        System.out.println ("Tiempo total caminado en la semana: " + tiempo + " h. y " + " m.");
     }
 
    
@@ -176,10 +178,17 @@ public class Podometro {
      * que se establece a MUJER. La marca no varía
      *  
      */    
-    public void reset() {
-
-        
-
+    public void reset() 
+    {
+        altura = 0;
+        sexo = MUJER;
+        longitudZancada = 0;
+        totalPasosLaborables = 0;
+        totalPasosSabado = 0;
+        totalPasosDomingo = 0;
+        totalDistanciaSemana = 0;
+        totalDistanciaFinSemana = 0;
+        tiempo = 0;
+        caminatasNoche = 0;
     }
-
 }
