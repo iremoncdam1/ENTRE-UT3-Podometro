@@ -117,8 +117,6 @@ public class Podometro
         
         int tiempoCaminata = horaFin - horaInicio;
         tiempo += tiempoCaminata;
-        
-        
     }
     
      /**
@@ -161,8 +159,6 @@ public class Podometro
         System.out.println ("Tiempo total caminado en la semana: " + tiempo / 100 + " h. y " + tiempo % 100 + " m.");
     }
 
-   
-
     /**
     *  Calcula y devuelve un String que representa el nombre del día
     *  en el que se ha caminado más pasos - "SÁBADO"   "DOMINGO" o  "LABORABLES"
@@ -198,7 +194,6 @@ public class Podometro
             return "LABORABLES   SÁBADO   DOMINGO";
         }
     }
-    
     
     /**
      * Restablecer los valores iniciales del podómetro
